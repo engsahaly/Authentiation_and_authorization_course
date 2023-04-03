@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontHomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+// FRONT DESIGN 
+Route::prefix('front')->name('front.')->group(function () {
+    Route::get('/', FrontHomeController::class)->name('index');
+    Route::view('/login', 'front.auth.login');
+    Route::view('/register', 'front.auth.register');
+    Route::view('/forget-password', 'front.auth.forget-password');
+});
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
