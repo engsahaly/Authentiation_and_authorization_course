@@ -56,7 +56,7 @@
 
                         <p class="text-center">
                             <span>Already have an account?</span>
-                            <a href="auth-login-basic.html">
+                            <a href="{{ route('login') }}">
                                 <span>Sign in instead</span>
                             </a>
                         </p>
