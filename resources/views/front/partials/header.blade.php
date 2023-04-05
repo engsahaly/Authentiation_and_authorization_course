@@ -47,6 +47,11 @@
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
                                     <small class="text-muted">User</small>
+
+
+                                    {{ Auth::guard('admin')->user()->name }}
+
+
                                 </div>
                             </div>
                         </a>
