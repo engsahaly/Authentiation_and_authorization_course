@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminAuth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,8 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        // return view('auth.register');
-        return view('front.auth.register');
+        return view('back.auth.register');
     }
 
     /**
@@ -37,16 +37,14 @@ class RegisteredUserController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
+        $admin = Admin::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        event(new Registered($user));
+        Auth::guard('admin')->login($admin);
 
-        Auth::login($user);
-
-        return to_route('front.index');
+        return to_route('back.index');
     }
 }
