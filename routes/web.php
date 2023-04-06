@@ -35,6 +35,7 @@ Route::prefix('back')->name('back.')->group(function () {
     Route::view('/login', 'back.auth.login');
     Route::view('/register', 'back.auth.register');
     Route::view('/forget-password', 'back.auth.forget-password');
+    require __DIR__ . '/adminAuth.php';
 });
 
 
