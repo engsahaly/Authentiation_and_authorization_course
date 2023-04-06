@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 
+use App\Notifications\AdminPasswordNotification;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -14,6 +15,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Admin extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new AdminPasswordNotification($token));
+    }
 
     /**
      * The attributes that are mass assignable.
