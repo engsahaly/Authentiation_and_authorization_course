@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         // return view('auth.login');
-        return view('front.auth.login');
+        return view('back.auth.login');
     }
 
     /**
@@ -26,11 +26,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $request->authenticate('admin');
 
         $request->session()->regenerate();
 
-        return to_route('front.index');
+        return to_route('back.index');
     }
 
     /**
