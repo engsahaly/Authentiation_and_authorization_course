@@ -10,14 +10,14 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h2 class="h5 page-title">{{ __('lang.users') }}</h2>
 
-                {{-- @if (permission(['add_users'])) --}}
-                <div class="page-title-right">
-                    <a href="{{ route('back.users.create') }}" data-title="{{ __('lang.add_new_user') }}" id="add_btn"
-                        class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mainModal">
-                        {{ __('lang.add_new') }}
-                    </a>
-                </div>
-                {{-- @endif --}}
+                @if (permission('add_user'))
+                    <div class="page-title-right">
+                        <a href="{{ route('back.users.create') }}" data-title="{{ __('lang.add_new_user') }}" id="add_btn"
+                            class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mainModal">
+                            {{ __('lang.add_new') }}
+                        </a>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -53,34 +53,35 @@
                                             </button>
                                             <div class="dropdown-menu">
 
-                                                {{-- @if (permission(['show_users'])) --}}
-                                                <a href="{{ route('back.users.show', ['user' => $item]) }}"
-                                                    class="dropdown-item displayClass"
-                                                    data-title="{{ __('lang.show_user') }}" data-bs-toggle="modal"
-                                                    data-bs-target="#mainModal">
-                                                    <span class="bx bx-show-alt"></span>
-                                                    {{ __('lang.show') }}
-                                                </a>
-                                                {{-- @endif --}}
+                                                @if (permission(['show_user']))
+                                                    <a href="{{ route('back.users.show', ['user' => $item]) }}"
+                                                        class="dropdown-item displayClass"
+                                                        data-title="{{ __('lang.show_user') }}" data-bs-toggle="modal"
+                                                        data-bs-target="#mainModal">
+                                                        <span class="bx bx-show-alt"></span>
+                                                        {{ __('lang.show') }}
+                                                    </a>
+                                                @endif
 
-                                                {{-- @if (permission(['edit_users'])) --}}
-                                                <a href="{{ route('back.users.edit', ['user' => $item]) }}"
-                                                    class="dropdown-item editClass" data-title="{{ __('lang.edit_user') }}"
-                                                    data-bs-toggle="modal" data-bs-target="#mainModal">
-                                                    <span class="bx bx-edit-alt"></span>
-                                                    {{ __('lang.edit') }}
-                                                </a>
-                                                {{-- @endif --}}
+                                                @if (permission(['edit_user']))
+                                                    <a href="{{ route('back.users.edit', ['user' => $item]) }}"
+                                                        class="dropdown-item editClass"
+                                                        data-title="{{ __('lang.edit_user') }}" data-bs-toggle="modal"
+                                                        data-bs-target="#mainModal">
+                                                        <span class="bx bx-edit-alt"></span>
+                                                        {{ __('lang.edit') }}
+                                                    </a>
+                                                @endif
 
-                                                {{-- @if (permission(['delete_users'])) --}}
-                                                <a class="dropdown-item deleteClass"
-                                                    href="{{ route('back.users.destroy', ['user' => $item]) }}"
-                                                    data-title="{{ __('lang.delete_user') }}" data-bs-toggle="modal"
-                                                    data-bs-target="#deleteModal">
-                                                    <span class="bx bx-trash-alt"></span>
-                                                    {{ __('lang.delete') }}
-                                                </a>
-                                                {{-- @endif --}}
+                                                @if (permission(['delete_user']))
+                                                    <a class="dropdown-item deleteClass"
+                                                        href="{{ route('back.users.destroy', ['user' => $item]) }}"
+                                                        data-title="{{ __('lang.delete_user') }}" data-bs-toggle="modal"
+                                                        data-bs-target="#deleteModal">
+                                                        <span class="bx bx-trash-alt"></span>
+                                                        {{ __('lang.delete') }}
+                                                    </a>
+                                                @endif
 
                                             </div>
                                         </div>
