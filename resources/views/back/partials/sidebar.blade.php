@@ -74,8 +74,8 @@
         </li>
 
         <!-- ROLES -->
-        <li class="menu-item">
-            <a href="#" class="menu-link">
+        <li class="menu-item @yield('roles_active')">
+            <a href="{{ route('back.roles.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Roles</div>
             </a>
