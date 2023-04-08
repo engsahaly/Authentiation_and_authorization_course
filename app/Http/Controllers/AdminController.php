@@ -72,7 +72,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::where('guard_name', 'admin')->get();
         return view(self::DIRECTORY . ".create", get_defined_vars());
     }
 

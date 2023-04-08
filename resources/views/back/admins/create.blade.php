@@ -17,15 +17,15 @@
                 placeholder="{{ __('lang.please_enter') }} {{ __('lang.email') }}...">
         </div>
 
-        {{-- <div class="form-group col-md-12">
+        <div class="form-group col-md-12">
             <label class="form-label">{{ __('lang.role') }}</label>
             <select class="border form-control" name="role">
                 <option value="">{{ __('lang.select_role') }}</option>
-                @foreach ($roles as $item)
-                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                @foreach ($roles as $role)
+                    <option value="{{ $role->name }}">{{ $role->name }}</option>
                 @endforeach
             </select>
-        </div> --}}
+        </div>
 
         <div class="form-group col-6">
             <label class="form-label">{{ __('lang.password') }}</label>

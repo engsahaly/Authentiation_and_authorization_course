@@ -47,11 +47,11 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>
-                                        {{-- @if (count($item->getRoleNames()) > 0)
+                                        @if (count($item->getRoleNames()) > 0)
                                             <span class="badge bg-warning text-white p-2">
                                                 {{ $item->getRoleNames()[0] ?? '' }}
                                             </span>
-                                        @endif --}}
+                                        @endif
                                     </td>
                                     <td>
                                         <div class="btn-group">

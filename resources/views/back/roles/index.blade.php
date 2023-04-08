@@ -56,23 +56,23 @@
                                                     {{ __('lang.show') }}
                                                 </a>
 
-                                                @if (permission(['edit_roles']))
-                                                    <a href="{{ route('back.roles.edit', ['role' => $item]) }}"
-                                                        class="dropdown-item">
-                                                        <span class="bx bx-edit-alt"></span>
-                                                        {{ __('lang.edit') }}
-                                                    </a>
-                                                @endif
+                                                {{-- @if (permission(['edit_roles'])) --}}
+                                                <a href="{{ route('back.roles.edit', ['role' => $item]) }}"
+                                                    class="dropdown-item">
+                                                    <span class="bx bx-edit-alt"></span>
+                                                    {{ __('lang.edit') }}
+                                                </a>
+                                                {{-- @endif --}}
 
-                                                @if (permission(['delete_roles']))
-                                                    <a class="dropdown-item deleteClass"
-                                                        href="{{ route('back.roles.destroy', ['role' => $item]) }}"
-                                                        data-title="{{ __('lang.delete_role') }}" data-bs-toggle="modal"
-                                                        data-bs-target="#deleteModal">
-                                                        <span class="bx bx-trash-alt"></span>
-                                                        {{ __('lang.delete') }}
-                                                    </a>
-                                                @endif
+                                                {{-- @if (permission(['delete_roles'])) --}}
+                                                <a class="dropdown-item deleteClass"
+                                                    href="{{ route('back.roles.destroy', ['role' => $item]) }}"
+                                                    data-title="{{ __('lang.delete_role') }}" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
+                                                    <span class="bx bx-trash-alt"></span>
+                                                    {{ __('lang.delete') }}
+                                                </a>
+                                                {{-- @endif --}}
 
                                             </div>
                                         </div>
