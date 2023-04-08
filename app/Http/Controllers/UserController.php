@@ -13,11 +13,10 @@ class UserController extends Controller
 
     function __construct()
     {
-        // $this->middleware('check_permission:list_users')->only(['index', 'getData']);
-        // $this->middleware('check_permission:add_users')->only(['create', 'store']);
-        // $this->middleware('check_permission:show_users')->only(['show']);
-        // $this->middleware('check_permission:edit_users')->only(['edit', 'update']);
-        // $this->middleware('check_permission:delete_users')->only(['destroy']);
+        $this->middleware('check_permission:add_user')->only(['create', 'store']);
+        $this->middleware('check_permission:show_user')->only(['show']);
+        $this->middleware('check_permission:edit_user')->only(['edit', 'update']);
+        $this->middleware('check_permission:delete_user')->only(['destroy']);
     }
 
     /**
