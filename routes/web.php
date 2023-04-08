@@ -1,9 +1,12 @@
 <?php
 
-use App\Http\Controllers\Back\BackHomeController;
-use App\Http\Controllers\FrontHomeController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontHomeController;
+use App\Http\Controllers\Back\BackHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +32,22 @@ require __DIR__ . '/auth.php';
 // BACK DESIGN 
 Route::prefix('back')->name('back.')->group(function () {
     Route::get('/', BackHomeController::class)->middleware('admin')->name('index');
+
+    ##------------------------------------------------------- USERS MODULE
+    Route::controller(UserController::class)->group(function () {
+        Route::resource('users', UserController::class);
+    });
+
+    ##------------------------------------------------------- ROLES MODULE
+    Route::controller(RoleController::class)->group(function () {
+        Route::resource('roles', RoleController::class);
+    });
+
+    ##------------------------------------------------------- ADMINS MODULE
+    Route::controller(AdminController::class)->group(function () {
+        Route::resource('admins', AdminController::class);
+    });
+
     require __DIR__ . '/adminAuth.php';
 });
 

@@ -1,5 +1,6 @@
 @extends('back.master')
 @section('title', 'Back Home Page')
+@section('home_active', 'active')
 
 @section('content')
     <div class="row">

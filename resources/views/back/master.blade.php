@@ -41,6 +41,8 @@
     <!-- / Layout wrapper -->
 
 
+    @include('back.modals.mainModal')
+    @include('back.modals.deleteModal')
     @include('back.partials.scripts')
 
 </body>
