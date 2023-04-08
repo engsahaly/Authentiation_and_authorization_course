@@ -1,4 +1,4 @@
-@extends('dashboard.master')
+@extends('back.master')
 @section('title', __('lang.users'))
 @section('users_active', 'active bg-light')
 @includeIf("$directory.pushStyles")
@@ -10,22 +10,20 @@
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                 <h2 class="h5 page-title">{{ __('lang.users') }}</h2>
 
-                @if (permission(['add_users']))
+                {{-- @if (permission(['add_users'])) --}}
                 <div class="page-title-right">
-                    <a href="{{ route('admin.users.create') }}" data-title="{{ __('lang.add_new_user') }}" id="add_btn" class="btn btn-primary" data-toggle="modal" data-target="#mainModal">
+                    <a href="{{ route('back.users.create') }}" data-title="{{ __('lang.add_new_user') }}" id="add_btn"
+                        class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mainModal">
                         {{ __('lang.add_new') }}
                     </a>
                 </div>
-                @endif
+                {{-- @endif --}}
             </div>
         </div>
     </div>
 
-    {{-- Filteration --}}
-    @includeIf("$directory.filter")
-
     {{-- Table --}}
-    <div class="card" id="mainCont">
+    <div class="card mt-3" id="mainCont">
         <div class="card-body">
 
             {{-- Table --}}
@@ -41,39 +39,48 @@
                     </thead>
 
                     <tbody>
-                        @if( count($data['data']) > 0 )
+                        @if (count($data['data']) > 0)
                             @foreach ($data['data'] as $key => $item)
                                 <tr>
-                                    <td>{{ $data['data']->firstItem()+$loop->index }}</td>
+                                    <td>{{ $data['data']->firstItem() + $loop->index }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email ?? '' }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <button class="btn btn-primary dropdown-toggle btn-sm" type="button" data-toggle="dropdown" aria-expanded="false">
+                                            <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 {{ __('lang.actions') }} <i class="mdi mdi-chevron-down"></i>
                                             </button>
                                             <div class="dropdown-menu">
 
-                                                @if (permission(['show_users']))
-                                                <a href="{{ route('admin.users.show', ['user' => $item]) }}" class="dropdown-item displayClass" data-title="{{ __('lang.show_user') }}" data-toggle="modal" data-target="#mainModal">
+                                                {{-- @if (permission(['show_users'])) --}}
+                                                <a href="{{ route('back.users.show', ['user' => $item]) }}"
+                                                    class="dropdown-item displayClass"
+                                                    data-title="{{ __('lang.show_user') }}" data-bs-toggle="modal"
+                                                    data-bs-target="#mainModal">
                                                     <span class="bx bx-show-alt"></span>
                                                     {{ __('lang.show') }}
                                                 </a>
-                                                @endif
-                                                
-                                                @if (permission(['edit_users']))
-                                                <a href="{{ route('admin.users.edit', ['user' => $item]) }}" class="dropdown-item editClass" data-title="{{ __('lang.edit_user') }}" data-toggle="modal" data-target="#mainModal">
+                                                {{-- @endif --}}
+
+                                                {{-- @if (permission(['edit_users'])) --}}
+                                                <a href="{{ route('back.users.edit', ['user' => $item]) }}"
+                                                    class="dropdown-item editClass" data-title="{{ __('lang.edit_user') }}"
+                                                    data-bs-toggle="modal" data-bs-target="#mainModal">
                                                     <span class="bx bx-edit-alt"></span>
                                                     {{ __('lang.edit') }}
                                                 </a>
-                                                @endif
+                                                {{-- @endif --}}
 
-                                                @if (permission(['delete_users']))
-                                                <a class="dropdown-item deleteClass" href="{{ route('admin.users.destroy', ['user' => $item]) }}" data-title="{{ __('lang.delete_user') }}" data-toggle="modal" data-target="#deleteModal">
+                                                {{-- @if (permission(['delete_users'])) --}}
+                                                <a class="dropdown-item deleteClass"
+                                                    href="{{ route('back.users.destroy', ['user' => $item]) }}"
+                                                    data-title="{{ __('lang.delete_user') }}" data-bs-toggle="modal"
+                                                    data-bs-target="#deleteModal">
                                                     <span class="bx bx-trash-alt"></span>
                                                     {{ __('lang.delete') }}
                                                 </a>
-                                                @endif
+                                                {{-- @endif --}}
 
                                             </div>
                                         </div>
@@ -86,9 +93,9 @@
                     </tbody>
                 </table>
             </div>
-        
-            {{ $data['data']->appends(request()->query())->render("pagination::bootstrap-4") }}
-        
+
+            {{ $data['data']->appends(request()->query())->render('pagination::bootstrap-4') }}
+
         </div>
     </div>
 @endsection

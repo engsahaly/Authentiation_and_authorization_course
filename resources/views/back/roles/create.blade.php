@@ -55,7 +55,7 @@
                 </div>
                 {{-- MODIFICATIONS TO HERE --}}
 
-                <div class="form-group mt-3">
+                <div class="form-group float-end mt-3">
                     <button type="button" class="btn btn-primary" id="submit_add_form">{{ __('lang.submit') }}</button>
                 </div>
             </form>

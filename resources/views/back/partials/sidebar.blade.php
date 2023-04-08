@@ -82,8 +82,8 @@
         </li>
 
         <!-- USERS -->
-        <li class="menu-item">
-            <a href="#" class="menu-link">
+        <li class="menu-item @yield('users_active')">
+            <a href="{{ route('back.users.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Users</div>
             </a>

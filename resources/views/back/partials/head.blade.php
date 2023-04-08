@@ -40,4 +40,10 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets-back') }}/js/config.js"></script>
 
+    <style>
+        .form-label {
+            color: blue !important;
+            margin-top: 10px !important;
+        }
+    </style>
 </head>

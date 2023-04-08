@@ -1,4 +1,4 @@
-<form action="{{ route('admin.users.update', ['user' => $user]) }}" method="post" id="edit_form"
+<form action="{{ route('back.users.update', ['user' => $user]) }}" method="post" id="edit_form"
     enctype="multipart/form-data">
     @csrf
     @method('PUT')
@@ -33,11 +33,10 @@
     </div>
     {{-- MODIFICATIONS TO HERE --}}
 
-    <div class="form-group float-right mt-2">
-        <button type="button" class="btn btn-light" data-dismiss="modal">{{ __('lang.close') }}</button>
+    <div class="form-group float-end mt-2">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">{{ __('lang.close') }}</button>
         <button type="button" class="btn btn-primary" id="submit_edit_form">
             {{ __('lang.submit') }}
-            @include('dashboard.modals.spinner')
         </button>
     </div>
 </form>

@@ -1,4 +1,4 @@
-<form action="{{ route('admin.users.store') }}" method="post" id="add_form" enctype="multipart/form-data">
+<form action="{{ route('back.users.store') }}" method="post" id="add_form" enctype="multipart/form-data">
     @csrf
 
     <div id="add_form_messages"></div>
@@ -31,11 +31,10 @@
     </div>
     {{-- MODIFICATIONS TO HERE --}}
 
-    <div class="form-group float-right mt-2">
-        <button type="button" class="btn btn-light" data-dismiss="modal">{{ __('lang.close') }}</button>
+    <div class="form-group float-end mt-2">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">{{ __('lang.close') }}</button>
         <button type="button" class="btn btn-primary" id="submit_add_form">
             {{ __('lang.submit') }}
-            @include('dashboard.modals.spinner')
         </button>
     </div>
 </form>

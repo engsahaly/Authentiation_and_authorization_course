@@ -1,4 +1,4 @@
-<script src="{{ asset('assets') }}/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('assets-back') }}/jquery-3.6.0.min.js"></script>
 <script>
     $("document").ready(function() {
         //============================================= LOADER
