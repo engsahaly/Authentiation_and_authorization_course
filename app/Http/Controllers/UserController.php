@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 
@@ -13,10 +15,10 @@ class UserController extends Controller
 
     function __construct()
     {
-        $this->middleware('check_permission:add_user')->only(['create', 'store']);
-        $this->middleware('check_permission:show_user')->only(['show']);
-        $this->middleware('check_permission:edit_user')->only(['edit', 'update']);
-        $this->middleware('check_permission:delete_user')->only(['destroy']);
+        // $this->middleware('check_permission:add_user')->only(['create', 'store']);
+        // $this->middleware('check_permission:show_user')->only(['show']);
+        // $this->middleware('check_permission:edit_user')->only(['edit', 'update']);
+        // $this->middleware('check_permission:delete_user')->only(['destroy']);
     }
 
     /**
@@ -71,6 +73,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        Gate::forUser(Auth::guard('admin')->user())->authorize('add_user');
         return view(self::DIRECTORY . ".create", get_defined_vars());
     }
 
