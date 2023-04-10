@@ -25,9 +25,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('add_user', function (Admin $admin) {
-            return $admin->hasAnyPermission('add_user') ? Response::allow()
-                : Response::deny('You don\'t have a permission to create new users');
-        });
+        // Gate::define('add_user', function (Admin $admin) {
+        //     return $admin->hasAnyPermission('add_user') ? Response::allow()
+        //         : Response::deny('You don\'t have a permission to create new users');
+        // });
     }
 }

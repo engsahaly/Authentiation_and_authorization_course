@@ -74,6 +74,9 @@ class UserController extends Controller
     public function create()
     {
         Gate::forUser(Auth::guard('admin')->user())->authorize('add_user');
+        // if (Auth::guard('admin')->user()->cannot('add_user')) {
+        //     abort(403);
+        // }
         return view(self::DIRECTORY . ".create", get_defined_vars());
     }
 
