@@ -1,6 +1,6 @@
 ## Multi Authentication and Authorization Course Files
 
-<img src="https://img-b.udemycdn.com/course/750x422/5264674_4080.jpg">
+<img src="https://img-c.udemycdn.com/course/750x422/5264674_4080.jpg">
 
 **Created By :** Mahmoud Anwar
 **Email :** Engsahaly@gmail.com
